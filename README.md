@@ -1,3 +1,8 @@
 # barista-bot
 
-# Hanson Yu
+
+* Hanson Yu
+* William Huang
+* Shivani Sista
+* Anushka Lodha
+
