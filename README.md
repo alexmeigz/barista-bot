@@ -1,5 +1,7 @@
 # barista-bot
 
-Christopher
+Christopher LaBorde
 Anushka Lodha
-
+William Huang
+Shivani Sista
+Anushka Lodha
