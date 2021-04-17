@@ -6,5 +6,4 @@
 * William Huang
 * Shivani Sista
 * Anushka Lodha
-
-
+* Erin DeLong
