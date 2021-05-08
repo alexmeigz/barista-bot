@@ -51,5 +51,4 @@ with open("recipes.json", "w") as fp:   #Pickling
 
 
 
-time.sleep(20)
 driver.quit()
