@@ -18,6 +18,7 @@ chrome_options.add_argument("--disable-infobars")
 chrome_options.add_argument("--disable-dev-shm-usage")
 chrome_options.add_argument("--disable-browser-side-navigation")
 chrome_options.add_argument("--disable-gpu")
+chrome_options.add_extension('Adblock-Plus_v1.4.1.crx')
 prefs = {"profile.managed_default_content_settings.images": 2}
 chrome_options.add_experimental_option("prefs", prefs)
 driver = webdriver.Chrome(PATH, options=chrome_options)
