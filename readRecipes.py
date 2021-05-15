@@ -23,9 +23,15 @@ chrome_options.add_experimental_option("prefs", prefs)
 driver = webdriver.Chrome(PATH, options=chrome_options)
 
 
-jsonFile = open('recipes.json', 'r')
+jsonFile = open('recipeCleaned.json', 'r')
 recipeUrls = []
 recipeUrls = json.load(jsonFile)
+
+jsonFile2 = open('recipeList.json', 'r')
+recipeList = []
+recipeList = json.load(jsonFile2)
+
+recipeLen = len(recipeList)
 
 def readRecipe(link):
     recipe = {}
@@ -38,8 +44,8 @@ def readRecipe(link):
     recipe["directions"] = [item.text for item in directions]
     return recipe
 
-recipeList = []
-for i in tqdm(range(50)):
+
+for i in tqdm(range(recipeLen, recipeLen + 25)):
     recipeList.append(readRecipe(recipeUrls[i]))
 
 with open("recipeList.json", "w") as fp: 
