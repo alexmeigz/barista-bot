@@ -32,8 +32,9 @@ def postRecipe():
     d = {}
     d["blueberry smoothie"] = [(2,"cups","yogurt"),(1, "tablespoon","honey"),(1, "bucket", "feet")]
     for key in d:
-        ing = Ingredient_tuple(quantity=d[key][0], measurement=d[key][1], ingredient=d[key][2], recipeName=key)
-        db.session.add(ing)
+        for l in d[key]:
+            ing = Ingredient_tuple(quantity=l[0], measurement=l[1], ingredient=l[2], recipeName=key)
+            db.session.add(ing)
     db.session.commit()
     return 'Hello, Flask!'
 
@@ -42,6 +43,11 @@ def getRecipe():
     query_parameters = request.args
     recipe_name = query_parameters.get("recipe_title")
     print(recipe_name)
-    ings = models.Ingredient_tuple.query.filter_by(recipeName=recipe_name).all()
+    ings = Ingredient_tuple.query.filter_by(recipeName=recipe_name).all()
     print(ings)
-    return "<h1>Distant Reading Archive</h1><p>This site is a prototype API for distant reading of science fiction novels.</p>"
+    l = []
+    for ing in ings:
+        l.append({"quantity": ing.quantity, "measurement": ing.measurement, "ingredient": ing.ingredient})
+    return {"recipe": recipe_name, "ingredients": l}, 200
+
+app.run()
